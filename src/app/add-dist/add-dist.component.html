@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="col-md-6">
+    <a routerLink="/dist" class="btn btn-link">
+      <i class="fa fa-chevron-left"></i> Back
+    </a>
+  </div>
+  <div class="col-md-6">
+
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    Add Discounts
+  </div>
+  <div class="card-body">
+    <form #distForm="ngForm" (ngSubmit)="onSubmit(distForm)">
+      <!-- name sect -->
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" #distname="ngModel" [ngClass]="{'is-invalid':distname.errors && distname.touched}"
+          [(ngModel)]="name" minlength="2" required>
+        <div [hidden]="!distname.errors?.required" class="invalid-feedback">
+          Discount Name Required
+        </div>
+        <div [hidden]="!distname.errors?.minlength" class="invalid-feedback">
+          Must be at least 2 characters
+        </div>
+      </div>
+      <!-- store sect -->
+      <div class="form-group">
+        <label for="store">Store Name</label>
+        <input type="text" class="form-control" name="store" #diststore="ngModel" [ngClass]="{'is-invalid':diststore.errors && diststore.touched}"
+          [(ngModel)]="store" minlength="2" required>
+        <div [hidden]="!diststore.errors?.required" class="invalid-feedback">
+          Store Name Required
+        </div>
+        <div [hidden]="!diststore.errors?.minlength" class="invalid-feedback">
+          Must be at least 2 characters
+        </div>
+      </div>
+      <!-- expired time sect -->
+      <div class="form-group">
+        <label for="time">Expired Time</label>
+        <input type="text" class="form-control" name="time" #distTime="ngModel" [ngClass]="{'is-invalid':distTime.errors && distTime.touched}"
+          [(ngModel)]="time" pattern="\d{1,2}/\d{1,2}/\d{4}" required >
+        <div [hidden]="!distTime.errors?.required" class="invalid-feedback">
+          Expired Time Required
+        </div>
+        <div [hidden]="!distTime.errors?.pattern" class="invalid-feedback">
+          Must in Form of mm/dd/yyyy
+        </div>
+      </div>
+      <!-- user sect -->
+      <div class="form-group">
+        <label for="user">Applicable User</label>
+        <input type="text" class="form-control" name="user" #distUser="ngModel" [ngClass]="{'is-invalid':distUser.errors && distUser.touched}"
+          [(ngModel)]="user" minlength="2" required>
+        <div [hidden]="!distUser.errors?.required" class="invalid-feedback">
+          Applicable User Required
+        </div>
+        <div [hidden]="!distUser.errors?.minlength" class="invalid-feedback">
+          Must be at least 2 characters
+        </div>
+      </div>
+      <!-- rule sect -->
+      <div class="form-group">
+        <label for="rule">Rules</label>
+        <input type="text" class="form-control" name="rule" #distRule="ngModel" [ngClass]="{'is-invalid':distRule.errors && distRule.touched}"
+          [(ngModel)]="rule" minlength="2" required>
+        <div [hidden]="!distRule.errors?.required" class="invalid-feedback">
+          Rule Required
+        </div>
+        <div [hidden]="!distRule.errors?.minlength" class="invalid-feedback">
+          Must be at least 2 characters
+        </div>
+      </div>
+
+      <input type="submit" value="Add" class="btn btn-primary btn-block" >
+    </form>
+  </div>
+</div>

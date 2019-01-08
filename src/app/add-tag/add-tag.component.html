@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-6">
+      <a routerLink="/members" class="btn btn-link">
+        <i class="fa fa-chevron-left"></i> Back
+      </a>
+    </div>
+    <div class="col-md-6">
+  
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      Add Tag
+    </div>
+    <div class="card-body">
+      <form>
+        <!-- name sect -->
+        <div class="form-group">
+          <label for="name">Tag Name</label>
+          <input type="text" class="form-control" name="name" 
+            required>
+          <div [hidden]="!distname.errors?.required" class="invalid-feedback">
+            Tag Name Required
+          </div>
+        </div>
+        <input type="submit" value="Add Tag" class="btn btn-primary btn-block" >
+      </form>
+    </div>
+  </div>

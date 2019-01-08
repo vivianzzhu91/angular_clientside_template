@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <div class="container">
+    <a href="" class="navbar-brand">LOGO <span id = "ba">Business Account</span></a>
+    <!-- <a id="nav-regis" routerLink="/regis">Doesn't have an account? Register Now!</a> -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a href="" class="nav-link">Dashboard</a>
+          </li>
+        </ul>
+  
+        <ul class="navbar-nav ml-auto">
+          <li *ngIf="!isLoggedin" class="nav-item">
+            <a routerLink="/regis" class="nav-link">Register</a>
+          </li>
+          <li *ngIf="!isLoggedin" class="nav-item">
+            <a routerLink="/login" class="nav-link">Login</a>
+          </li>
+          <li *ngIf="isLoggedin" class="nav-item">
+              <a routerLink="/" class="nav-link"><i class="fa fa-user"></i>{{loggedUser}}</a>
+          </li>
+          <li *ngIf="isLoggedin" class="nav-item">
+              <a (click)="onLogout()" routerLink="/" class="nav-link">Log Out</a>
+          </li>
+        </ul>
+      </div>
+  </div>
+</nav>

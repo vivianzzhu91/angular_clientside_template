@@ -1,0 +1,93 @@
+<!-- <app-dashboard></app-dashboard> -->
+<!-- static display dashboard nav -->
+<nav class="navbar navbar-expand-md navbar-light mb-4 mt-4">
+    <div class="container">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item mr-4">
+          <a routerLink="/dist" >
+             Discount Coupons 
+            </a>
+        </li>
+        <li class="nav-item mr-4">
+          <a routerLink="/members" > 
+              Members
+          </a>
+        </li>
+        <li class="nav-item mr-4">
+          <a routerLink="/product" ><u>
+              Products
+          </u></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- end of display -->
+<div class="row">
+  <div class="col-md-10">
+    <h2><i class="fa fa-cube"></i>Products </h2>
+    <!-- <button class="btn btn-light mr-auto">Add</button> -->
+    <table *ngIf="products?.length > 0" class = "table table-striped">
+      <thead class="thead-inverse">
+        <tr>
+          <th></th>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Section</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>
+            <a><i class="far fa-square"></i>
+            </a>
+          </td>
+          <td><img src="http://lorempixel.com/100/100/people/2" alt=""></td>
+          <td>{{product.name}}</td>
+          <td>{{product.section}} </td>
+          <td>{{product.price}}</td>
+          <td>
+            <a routerLink="/product/{{product.id}} " class="btn btn-secondary btn-sm">
+              <i class="fa fa-info-circle mr-2"></i>Detail
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div *ngIf="!products?.length >0">
+      <hr>
+      <h5>Currently there's no product available yet.</h5>
+      <h5>Try log in to see more details. </h5>
+    </div>
+  </div>
+  <div class="col-md-2">
+      <!-- <app-edit-dist></app-edit-dist> -->
+      <a routerLink="/prod/add" class="btn btn-success btn-block">
+        <i class="fa fa-plus"></i> Add
+      </a>
+      <table class = "table table-striped">
+        <thead>
+          <tr>
+            <th>All Section</th>
+          </tr>
+          <tr>
+            <td>Appitizer</td>
+          </tr>
+          <tr>
+              <td>Dessert</td>
+          <tr>
+          <tr>
+            <td>Main Dish</td>
+          </tr>
+          <tr>
+            <button class="btn btn-primary btn-light mb-3"><a routerLink="/addSect">Add Section</a></button>
+          </tr>
+          <tr>
+            <button class="btn btn-primary btn-light">Edit Section</button>
+          </tr>
+        </thead>
+      </table>
+    </div>
+</div>

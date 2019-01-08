@@ -1,0 +1,95 @@
+<!-- <app-dashboard></app-dashboard> -->
+
+<!-- static display dashboard nav -->
+<nav class="navbar navbar-expand-md navbar-light mb-4 mt-4">
+    <div class="container">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item mr-4">
+          <a routerLink="/dist" > <u>
+             Discount Coupons 
+             </u></a>
+        </li>
+        <li class="nav-item mr-4">
+          <a routerLink="/members" > 
+              Members
+          </a>
+        </li>
+        <li class="nav-item mr-4">
+          <a routerLink="/product" >
+              Products
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- end of display -->
+<div class="row">
+  <div class="col-md-10 dropdown">
+    <h2>
+      <i class="fa fa-tags"></i>Discounts 
+      <button class="btn btn-info dropdown-toggle btn-sm pull-right" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sorted By
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item mb-2" href="#">Expiring Soon</a>
+        <a class="dropdown-item mb-2" href="#">Most Discount</a>
+        <a class="dropdown-item mb-2" href="#">Most Used</a>
+        <a class="dropdown-item mb-2" href="#">Most Claimed</a>
+        <a class="dropdown-item mb-2" href="#">Applicable User</a>
+        <a class="dropdown-item mb-2" href="#">Time added</a>
+        <a class="dropdown-item mb-2" href="#">Alphebetically</a>
+      </div>
+    </h2>
+    <!-- <button class="btn btn-light mr-auto">Add</button> -->
+    
+
+    <table *ngIf="loaded && discounts?.length > 0" class = "table table-striped">
+      <thead class="thead-inverse">
+        <tr>
+          <th>Name</th>
+          <th>Store</th>
+          <th>Expired Time</th>
+          <th>User</th>
+          <th>Rule</th>
+          <th>Claimed</th>
+          <th>Used</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let discount of discounts">
+          <td>{{discount.name}}</td>
+          <td>{{discount.store}}</td>
+          <td>{{discount.time}}</td>
+          <td>{{discount.user}}</td>
+          <td>{{discount.rule}}</td>
+          <td *ngIf="discount.claimed">{{discount.claimed}}</td>
+          <td *ngIf="discount.used">{{discount.used}}</td>
+          <td>
+            <a routerLink="/dist/{{ discount.id }}" class="btn btn-secondary btn-sm">
+              <i class="fa fa-info-circle mr-2"></i>Detail
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div *ngIf="loaded && !discounts?.length >0">
+      <hr>
+      <h5>Currently there's no discounts available yet.</h5>
+      <h5>Try log in to see more details. </h5>
+    </div>
+  </div>
+  <div class="col-md-2">
+      <a routerLink="/dist/add" class="btn btn-success btn-block">
+        <i class="fa fa-plus"></i> Add
+      </a>
+    </div>
+</div>
+
+<h4 *ngIf="!loaded">Loading Discounts</h4>
+<!-- <ng-template #noDiscounts>
+  <hr>
+  <h5>Currently there's no discounts available yet.</h5>
+</ng-template> -->

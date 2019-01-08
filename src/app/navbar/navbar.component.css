@@ -1,0 +1,28 @@
+/* nav sect */
+.navbar{
+    background:#e3f2fd !important;
+    padding-top: 25px;
+    padding-bottom: 0px;
+    position: relative;
+}
+.navbar-brand{
+    display: inline-block;
+    /* border: 2px solid black; */
+    padding: 1px 15px;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: .2em; 
+    margin-left: 50px;
+}
+#ba{
+    
+    color:rgba(255, 172, 62, 0.842) !important;
+}
+#nav-regis{
+    color:white;
+    position: absolute;
+    right:20px;
+}
+.navbar-toggler{
+    color:black;
+}

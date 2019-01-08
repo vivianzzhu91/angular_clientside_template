@@ -1,0 +1,100 @@
+<!-- <app-dashboard></app-dashboard> -->
+<!-- static display dashboard nav -->
+<nav class="navbar navbar-expand-md navbar-light mb-4 mt-4">
+    <div class="container">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item mr-4">
+          <a routerLink="/dist" >
+            Discount Coupons 
+            </a>
+        </li>
+        <li class="nav-item mr-4">
+          <a routerLink="/members" ><u>
+              Members
+          </u></a>
+        </li>
+        <li class="nav-item mr-4">
+          <a routerLink="/product" >
+              Products
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- end of display -->
+<div class="row">
+  <div class="col-md-10">
+    <h2>
+      <i class="fa fa-users"></i>Members 
+      <!-- search bar -->
+      <div class="col-sm-6 my-3">
+        <div class="input-group">
+          <input type="text" class="form-control"  placeholder="Enter Member Name" >
+          <span class="input-group-addon">
+              <i class="fa fa-search"><a href=""></a></i>
+          </span>
+          <!-- add tag for selected members -->
+          <button class="btn btn-light mx-4">Add To Tag</button>
+        </div>
+      </div> 
+    </h2>
+    <!-- <button class="btn btn-light mr-auto">Add</button> -->
+    <table *ngIf="members?.length > 0" class = "table table-striped">
+      <thead class="thead-inverse">
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Tag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let member of members">
+          <td>
+            <a><i class="far fa-check-square"></i>
+            </a>
+          </td>
+          <td>{{member.name}}</td>
+          <td>{{member.tag}}</td>
+          <td>
+            <a routerLink="/members/{{member.id}}" class="btn btn-secondary btn-sm">
+              <i class="fa fa-info-circle mr-2"></i>Detail
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div *ngIf="!members?.length >0">
+      <hr>
+      <h5>Currently there's no members available yet.</h5>
+      <h5>Try log in to see more details. </h5>
+    </div>
+  </div>
+  <div class="col-md-2">
+      <!-- <app-edit-dist></app-edit-dist> -->
+      <table class = "table table-striped">
+        <thead>
+          <tr>
+            <th>All Tags</th>
+          </tr>
+          <tr>
+            <td>
+              <a routerLink="/tagDetail" >Starred</a>
+            </td>
+          </tr>
+          <tr>
+            <td>Membership</td>
+          </tr>
+          <tr>
+            <button class="btn btn-primary btn-light mb-3">
+              <a routerLink="/addTag">Add Tag</a>
+            </button>
+          </tr>
+          <tr>
+            <button class="btn btn-primary btn-light">Edit Tag</button>
+          </tr>
+        </thead>
+      </table>
+    </div>
+</div>
